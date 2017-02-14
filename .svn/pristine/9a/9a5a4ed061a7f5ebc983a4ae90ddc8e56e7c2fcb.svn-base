@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.PersonMapper" >
+  <resultMap id="BaseResultMap" type="com.pojo.Person" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="height" property="height" jdbcType="INTEGER" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="father" property="father" jdbcType="VARCHAR" />
+    <result column="mother" property="mother" jdbcType="VARCHAR" />
+    <result column="son" property="son" jdbcType="VARCHAR" />
+    <result column="id_car" property="idCar" jdbcType="INTEGER" />
+    <result column="hobby" property="hobby" jdbcType="VARCHAR" />
+    <result column="luckynumber" property="luckynumber" jdbcType="INTEGER" />
+    <result column="luckycolor" property="luckycolor" jdbcType="VARCHAR" />
+    <result column="lovemusic" property="lovemusic" jdbcType="VARCHAR" />
+    <result column="lovemovie" property="lovemovie" jdbcType="VARCHAR" />
+    <result column="lovebook" property="lovebook" jdbcType="VARCHAR" />
+    <result column="dear" property="dear" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, age, phone, address, weight, height, color, nation, father, mother, son, 
+    id_car, hobby, luckynumber, luckycolor, lovemusic, lovemovie, lovebook, dear
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from person
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from person
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pojo.Person" >
+    insert into person (id, name, age, 
+      phone, address, weight, 
+      height, color, nation, 
+      father, mother, son, 
+      id_car, hobby, luckynumber, 
+      luckycolor, lovemusic, lovemovie, 
+      lovebook, dear)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+      #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{weight,jdbcType=INTEGER}, 
+      #{height,jdbcType=INTEGER}, #{color,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, 
+      #{father,jdbcType=VARCHAR}, #{mother,jdbcType=VARCHAR}, #{son,jdbcType=VARCHAR}, 
+      #{idCar,jdbcType=INTEGER}, #{hobby,jdbcType=VARCHAR}, #{luckynumber,jdbcType=INTEGER}, 
+      #{luckycolor,jdbcType=VARCHAR}, #{lovemusic,jdbcType=VARCHAR}, #{lovemovie,jdbcType=VARCHAR}, 
+      #{lovebook,jdbcType=VARCHAR}, #{dear,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pojo.Person" >
+    insert into person
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="color != null" >
+        color,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="father != null" >
+        father,
+      </if>
+      <if test="mother != null" >
+        mother,
+      </if>
+      <if test="son != null" >
+        son,
+      </if>
+      <if test="idCar != null" >
+        id_car,
+      </if>
+      <if test="hobby != null" >
+        hobby,
+      </if>
+      <if test="luckynumber != null" >
+        luckynumber,
+      </if>
+      <if test="luckycolor != null" >
+        luckycolor,
+      </if>
+      <if test="lovemusic != null" >
+        lovemusic,
+      </if>
+      <if test="lovemovie != null" >
+        lovemovie,
+      </if>
+      <if test="lovebook != null" >
+        lovebook,
+      </if>
+      <if test="dear != null" >
+        dear,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="father != null" >
+        #{father,jdbcType=VARCHAR},
+      </if>
+      <if test="mother != null" >
+        #{mother,jdbcType=VARCHAR},
+      </if>
+      <if test="son != null" >
+        #{son,jdbcType=VARCHAR},
+      </if>
+      <if test="idCar != null" >
+        #{idCar,jdbcType=INTEGER},
+      </if>
+      <if test="hobby != null" >
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="luckynumber != null" >
+        #{luckynumber,jdbcType=INTEGER},
+      </if>
+      <if test="luckycolor != null" >
+        #{luckycolor,jdbcType=VARCHAR},
+      </if>
+      <if test="lovemusic != null" >
+        #{lovemusic,jdbcType=VARCHAR},
+      </if>
+      <if test="lovemovie != null" >
+        #{lovemovie,jdbcType=VARCHAR},
+      </if>
+      <if test="lovebook != null" >
+        #{lovebook,jdbcType=VARCHAR},
+      </if>
+      <if test="dear != null" >
+        #{dear,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pojo.Person" >
+    update person
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        age = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="father != null" >
+        father = #{father,jdbcType=VARCHAR},
+      </if>
+      <if test="mother != null" >
+        mother = #{mother,jdbcType=VARCHAR},
+      </if>
+      <if test="son != null" >
+        son = #{son,jdbcType=VARCHAR},
+      </if>
+      <if test="idCar != null" >
+        id_car = #{idCar,jdbcType=INTEGER},
+      </if>
+      <if test="hobby != null" >
+        hobby = #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="luckynumber != null" >
+        luckynumber = #{luckynumber,jdbcType=INTEGER},
+      </if>
+      <if test="luckycolor != null" >
+        luckycolor = #{luckycolor,jdbcType=VARCHAR},
+      </if>
+      <if test="lovemusic != null" >
+        lovemusic = #{lovemusic,jdbcType=VARCHAR},
+      </if>
+      <if test="lovemovie != null" >
+        lovemovie = #{lovemovie,jdbcType=VARCHAR},
+      </if>
+      <if test="lovebook != null" >
+        lovebook = #{lovebook,jdbcType=VARCHAR},
+      </if>
+      <if test="dear != null" >
+        dear = #{dear,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pojo.Person" >
+    update person
+    set name = #{name,jdbcType=VARCHAR},
+      age = #{age,jdbcType=INTEGER},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      height = #{height,jdbcType=INTEGER},
+      color = #{color,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      father = #{father,jdbcType=VARCHAR},
+      mother = #{mother,jdbcType=VARCHAR},
+      son = #{son,jdbcType=VARCHAR},
+      id_car = #{idCar,jdbcType=INTEGER},
+      hobby = #{hobby,jdbcType=VARCHAR},
+      luckynumber = #{luckynumber,jdbcType=INTEGER},
+      luckycolor = #{luckycolor,jdbcType=VARCHAR},
+      lovemusic = #{lovemusic,jdbcType=VARCHAR},
+      lovemovie = #{lovemovie,jdbcType=VARCHAR},
+      lovebook = #{lovebook,jdbcType=VARCHAR},
+      dear = #{dear,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
