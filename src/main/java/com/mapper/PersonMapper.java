@@ -9,7 +9,7 @@ public interface PersonMapper {
 
     int insertSelective(Person record);
 
-    Person selectByPrimaryKey(int id);
+    Person selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Person record);
 

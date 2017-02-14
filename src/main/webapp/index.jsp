@@ -7,7 +7,7 @@
 	<input id="person_id">
 	<button id="btn" onclick="selectByPrimaryKey()">press</button>
 	<div id="box"></div>
-	<script type="text/javascript">
+<script type="text/javascript">
 	var un = document.getElementById("btn");
 	
 	var person_id =document.getElementById("person_id");
@@ -23,17 +23,16 @@
 	xmlHttp.onreadystatechange = function(){
 		if(xmlHttp.status == 200 && xmlHttp.readyState == 4){
 			var box = document.getElementById("box");
-			var person = eval("("+xmlHttp.responseText +")");
-				box.innerHTML = person.toString();
+				box.innerHTML = xmlHttp.responseText;
 			
 		}
 	}
 
-	xmlHttp.open("get", "selectByPrimaryKey?id"+person_id.value, true);
+	xmlHttp.open("get", "selectByPrimaryKey?id="+person_id.value, true);
 	xmlHttp.send();
 }
 	
-
+ 
 </script>
 
 </body>

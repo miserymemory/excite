@@ -14,11 +14,12 @@
 	<context:component-scan base-package="com" />
 	<mvc:annotation-driven />
 	<!-- 2.连接池的配置 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/work" />
-		<property name="username" value="root" />
-		<property name="password" value="tiger" />
+		<property name="driverClassName" value="${dbcp.diver}" />
+		<property name="url" value="${dbcp.url}" />
+		<property name="username" value="${dbcp.username}" />
+		<property name="password" value="${dbcp.password}" />
 	</bean>
 	<!-- 3.配置事务 -->
 	<bean id="txManager"

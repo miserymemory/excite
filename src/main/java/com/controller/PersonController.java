@@ -21,12 +21,10 @@ public class PersonController {
 	public PersonService personService;
 
 	@RequestMapping("/selectByPrimaryKey")
-	public @ResponseBody Person selectByPrimaryKey(int id,HttpServletRequest request,HttpServletResponse response) throws IOException{
-		
-		Person person =personService.selectByPrimaryKey(id);
-		String allRequest=person.toString();
-		PrintWriter pw = response.getWriter();
-		pw.write(allRequest);
-		return null;
+	public @ResponseBody Person selectByPrimaryKey(int id){
+	
+		Person person =personService.selectByPrimaryKey(new Integer(id));
+	
+		return person;
 	}
 }

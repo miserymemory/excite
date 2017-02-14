@@ -15,7 +15,7 @@ public class PersonServiceImpl implements PersonService {
 	public PersonMapper personMapper;
 	
 	@Override
-	public Person selectByPrimaryKey(int id) {
+	public Person selectByPrimaryKey(Integer id) {
 		// TODO Auto-generated method stub
 		return personMapper.selectByPrimaryKey(id);
 	}

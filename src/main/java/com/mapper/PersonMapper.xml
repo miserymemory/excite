@@ -27,11 +27,11 @@
     id, name, age, phone, address, weight, height, color, nation, father, mother, son, 
     id_car, hobby, luckynumber, luckycolor, lovemusic, lovemovie, lovebook, dear
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="int" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from person
-    where id = #{id}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from person
