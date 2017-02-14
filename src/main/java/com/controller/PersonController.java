@@ -24,7 +24,7 @@ public class PersonController {
 	public @ResponseBody Person selectByPrimaryKey(int id){
 	
 		Person person =personService.selectByPrimaryKey(new Integer(id));
-	
+		// 准备提交
 		return person;
 	}
 }
